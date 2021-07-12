@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/css/style.css' />
+
+</head>
+
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <form  method="POST" action="/movies/create">
+        <label>TITULO: 
+            <input type= "text" name="title" value="">
+            <br>
+            <span><%=locals.errors && errors.title ? errors.title.msg : ''%></span>
+        </label>
+        <br>
+        <label>GENERO:
+            <select name="genre_id">
+                <option  value="">Seleccionar</option>
+                <%locals.moviesGenres.forEach(e =>{%>
+                    <option  value="<%=e.id%>"><%=e.name%></option> 
+                <%})%>
+            </select>
+        </label>
+        <br>
+        <label >RATING: <input type= "numer" step="0.01" name="rating">
+            <br>
+            <span><%=locals.errors && errors.rating ? errors.rating.msg : ''%></span>
+        </label>
+        <br>
+        <label >AWARDS: <input type= "number" name="awards">
+            <br>
+            <span><%=locals.errors && errors.awards ? errors.awards.msg : ''%></span>
+        </label >
+        <br>
+        <label >LENGTH: <input type= "number"   name="length">
+            <br>
+            <span><%=locals.errors && errors.length ? errors.length.msg : ''%></span>
+        </label >
+        <br>
+        <label>RELEASE DATE: <input type= "date" name="releaseDate" value="<%=locals.errors && oldValue.releaseDate ? oldValue.releaseDate : ''%>" >
+            <span><%=locals.errors && oldValue.releaseDate ? oldValue.releaseDate) : ''%></span>
+            <br>
+            <span><%=locals.errors && errors.releaseDate ? errors.releaseDate.msg : ''%></span>
+        </label >
+        <br>
+        <button type="submit">Crear</button>
+    </form>
+
+</body>
+
+</html>

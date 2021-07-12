@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=locals.errors && oldValue.title  ? oldValue.title : movie.title %> </title>
+    <link rel='stylesheet' href='/css/style.css' />
+
+</head>
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <h1><%=locals.errors && oldValue.title  ? oldValue.title : movie.title%> </h1>    
+    <br>
+    <form action="/movies/update/<%=locals.errors && oldValue.id ? oldValue.id :movie.id%>?_method=PUT" method="POST">
+        <label>NAME: <input type="text" name="title" value="<%=locals.errors && oldValue.title ? oldValue.title : movie.title %>"> </label>
+        <br>
+        <span><%=locals.errors && errors.title ? errors.title.msg : '' %></span>        
+        <br>
+    <label>RATING: <input type="number" step="0.01" name="rating" value="<%=locals.errors && oldValue.rating ? oldValue.rating : movie.rating %>"> </label>
+    <br>
+    <span><%=locals.errors && errors.rating ? errors.rating.msg : '' %></span>        
+    <br>
+    <label>AWARDS: <input type="number" name="awards" value="<%= locals.errors && oldValue.awards ? oldValue.awards : movie.awards%>"> </label>
+    <br>
+    <span><%=locals.errors && errors.awards ? errors.awards.msg : '' %></span>   
+        <br>
+    <label>LENGTH: <input type="number" name="length" value="<%= locals.errors && oldValue.length ? oldValue.length : movie.length%>"> </label>
+    <br>
+    <span><%=locals.errors && errors.length ? errors.length.msg : '' %></span>   
+        <br>
+    <label>RELEASE DATE: <input type="date" name="releaseDate" value="<%=locals.errors && oldValue.releaseDate ? oldValue.releaseDate : movie.releaseDate.toISOString().split('T')[0]%>"> </label>
+    <br>
+    <span><%=locals.errors && errors.releaseDate ? errors.releaseDate.msg : '' %></span>   
+        <br>
+        <button type="submit">MODIFICAR</button>
+        </form>
+        <form action="/movies/delete/<%=movie.id%>?_method=DELETE" method="POST" >
+        <button type="submit">ELIMINAR</button>
+    </form>
+        
+
+</body>
+</html>
