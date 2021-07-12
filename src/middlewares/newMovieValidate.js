@@ -14,6 +14,7 @@ const validations = [
             }             
         })
     }),
+    body('genre_id').notEmpty().withMessage("Debe seleccionar el genero de la película"),
     body('rating').notEmpty().withMessage("El rating no puede estar vacío").bail().isNumeric().withMessage('El rating debe ser numérico'),
     body('awards').notEmpty().withMessage("Los premios no pueden estar vacíos").bail().isNumeric().withMessage('Los premios deben ser numéricos'),
     body('length').notEmpty().withMessage("El largo de la película no puede estar vacío").bail().isNumeric().withMessage('El largo de la película debe ser numérico'),

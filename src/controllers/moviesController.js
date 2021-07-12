@@ -37,6 +37,7 @@ const controller =
                 })
             return
         }
+        console.log(errors)
         res.render('newMovie', { oldValue, errors })
     },
     detail: (req, res) => {

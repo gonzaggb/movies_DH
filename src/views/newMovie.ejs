@@ -26,6 +26,8 @@
                     <option  value="<%=e.id%>"><%=e.name%></option> 
                 <%})%>
             </select>
+            <br>
+            <span><%=locals.errors && errors.genre_id ? errors.genre_id.msg : ''%></span>
         </label>
         <br>
         <label >RATING: <input type= "numer" step="0.01" name="rating">
@@ -44,7 +46,7 @@
         </label >
         <br>
         <label>RELEASE DATE: <input type= "date" name="releaseDate" value="<%=locals.errors && oldValue.releaseDate ? oldValue.releaseDate : ''%>" >
-            <span><%=locals.errors && oldValue.releaseDate ? oldValue.releaseDate) : ''%></span>
+            <span><%=locals.errors && oldValue.releaseDate ? oldValue.releaseDate : ''%></span>
             <br>
             <span><%=locals.errors && errors.releaseDate ? errors.releaseDate.msg : ''%></span>
         </label >
